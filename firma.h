@@ -12,16 +12,17 @@ class Firma
 
         string imie;
         string nazwisko;
-        int pesel;
+        string pesel;
         string stanowisko;
         string login;
         string haslo;
         int tel_stacjonarny;
         int tel_sluzbowy;
         string email;
-        
+
 
         void dodaj_pracownika();
+        void data_urodzenia();
     private:
 
     protected:

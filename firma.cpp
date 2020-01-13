@@ -19,6 +19,11 @@ void Firma::dodaj_pracownika(){
     cout<<"Podaj pozostale dane."<<endl;
     cout<<"podaj pesel: ";
     cin>>pesel;
+    while(pesel.length()!=11){
+        cout<<"Pesel jest zbyt krotki"<<endl;
+        cout<<"podaj pesel: ";
+        cin>>pesel;
+    }
     cout<<"podaj stanowisko: ";
     cin>>stanowisko;
     cout<<"podaj login: ";
@@ -28,4 +33,13 @@ void Firma::dodaj_pracownika(){
 
 
     cin.clear();
+}
+
+void Firma::data_urodzenia(){
+
+    string t = pesel;
+    string rok(t,0,2);
+    string miesiac(t,2,2);
+    string dzien(t,4,2);
+    cout<<"Twoja data urodzenia to: "<<dzien<<"."<<miesiac<<"."<<rok<<endl;
 }
