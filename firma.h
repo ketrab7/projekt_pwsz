@@ -23,7 +23,10 @@ class Firma
 
         void dodaj_pracownika();
         void data_urodzenia();
+        
+
     private:
+        bool sprawdz_pesel();
 
     protected:
 
