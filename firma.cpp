@@ -12,7 +12,13 @@ void Firma::dodaj_pracownika(){
 
     cout<<"Witaj w naszej firmie."<<endl;
     cout<<"Jak masz na imie: ";
-    cin>>imie;
+    cin>>this->imie;
+        if(sprawdz_imie() == false){
+            while(sprawdz_imie()==false){
+                cout<<endl<<"Podaj swoje imie:";
+                cin>> this->imie;
+            }
+        }
     cout<<"Jak masz na nazwisko: ";
     cin>>nazwisko;
     cout<<"Witaj "<<imie<<" "<<nazwisko<<endl;
@@ -58,5 +64,15 @@ bool Firma::sprawdz_pesel(){
          } else {
                 return false;
          }
+    }
+}
+bool Firma::sprawdz_imie(){
+    this->imie[0] = toupper(this->imie[0]);
+    for(int i=1; i<this->imie.length(); i++){
+        this->imie[i] = tolower(this->imie[i]);
+    }
+    for (int j=0; this->imie.length(); j++){
+        if(this->imie[j] >= 65 || this->imie[j] <= 90 && this->imie[j] >= 97 || this->imie[j] <= 122)  return true;
+            else return false;
     }
 }

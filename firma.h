@@ -27,6 +27,7 @@ class Firma
 
     private:
         bool sprawdz_pesel();
+        bool sprawdz_imie();
 
     protected:
 
