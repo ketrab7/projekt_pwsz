@@ -13,14 +13,16 @@ void Firma::dodaj_pracownika(){
     cout<<"Witaj w naszej firmie."<<endl;
     cout<<"Jak masz na imie: ";
     cin>>this->imie;
-        if(sprawdz_imie() == false){
-            while(sprawdz_imie()==false){
-                cout<<endl<<"Podaj swoje imie:";
-                cin>> this->imie;
-            }
-        }
+         while(sprawdz_imie()==false){
+            cout<<endl<<"Podaj swoje imie:";
+            cin>> this->imie;
+         }
     cout<<"Jak masz na nazwisko: ";
-    cin>>nazwisko;
+    cin>>this->nazwisko;
+         while(sprawdz_nazwisko()==false){
+            cout<<endl<<"Podaj swoje nazwisko:";
+            cin>> this->nazwisko;
+         }
     cout<<"Witaj "<<imie<<" "<<nazwisko<<endl;
     cout<<"Podaj pozostale dane."<<endl;
     cout<<"podaj pesel: ";
@@ -72,7 +74,17 @@ bool Firma::sprawdz_imie(){
         this->imie[i] = tolower(this->imie[i]);
     }
     for (int j=0; this->imie.length(); j++){
-        if(this->imie[j] >= 65 || this->imie[j] <= 90 && this->imie[j] >= 97 || this->imie[j] <= 122)  return true;
+        if((this->imie[j] >= 65 && this->imie[j] <= 90) || (this->imie[j] >= 97 && this->imie[j] <= 122))  return true;
+            else return false;
+    }
+}
+bool Firma::sprawdz_nazwisko(){
+    this->nazwisko[0] = toupper(this->nazwisko[0]);
+    for(int i=1; i<this->nazwisko.length(); i++){
+        this->nazwisko[i] = tolower(this->nazwisko[i]);
+    }
+    for (int j=0; this->nazwisko.length(); j++){
+        if((this->nazwisko[j] >= 65 && this->nazwisko[j] <= 90) || (this->nazwisko[j] >= 97 && this->nazwisko[j] <= 122))  return true;
             else return false;
     }
 }
