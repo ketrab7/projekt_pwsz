@@ -1,6 +1,8 @@
 #include "firma.h"
 #include <iostream>
 #include<String>
+#include <cstdlib>
+#include <time.h>
 
 using namespace std;
 
@@ -92,4 +94,9 @@ void Firma::wygeneruj_mail(){
     this->imie[0] = tolower(this->imie[0]);
     this->nazwisko[0] = tolower(this->nazwisko[0]);
     cout<<endl<<"Twoj email to: "<<this->imie<<"."<<this->nazwisko<<"@firma.pl"<<endl;
+}
+void Firma::wygeneruj_nr_sluzbowy(){
+    srand(time(NULL));
+    this->tel_sluzbowy = rand()%10000+100000;
+    cout<<endl<<"Twoj numer telefonu sluzbowego to: 665"<<this->tel_sluzbowy<<endl;
 }
