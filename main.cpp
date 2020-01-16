@@ -12,6 +12,7 @@ int main () {
 
    pracownik1.dodaj_pracownika();
    pracownik1.data_urodzenia();
+   pracownik1.wygeneruj_mail();
 
    return 0;
 } 

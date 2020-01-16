@@ -62,9 +62,9 @@ void Firma::data_urodzenia(){
 bool Firma::sprawdz_pesel(){
     for(int i = 0; i < this->pesel.size(); i++){
         if(pesel[i]<48 || pesel[i]>57){
-                return true;
-         } else {
                 return false;
+         } else {
+                return true;
          }
     }
 }
@@ -87,4 +87,9 @@ bool Firma::sprawdz_nazwisko(){
         if((this->nazwisko[j] >= 65 && this->nazwisko[j] <= 90) || (this->nazwisko[j] >= 97 && this->nazwisko[j] <= 122))  return true;
             else return false;
     }
+}
+void Firma::wygeneruj_mail(){
+    this->imie[0] = tolower(this->imie[0]);
+    this->nazwisko[0] = tolower(this->nazwisko[0]);
+    cout<<endl<<"Twoj email to: "<<this->imie<<"."<<this->nazwisko<<"@firma.pl"<<endl;
 }

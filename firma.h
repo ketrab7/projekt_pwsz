@@ -23,6 +23,7 @@ class Firma
 
         void dodaj_pracownika();
         void data_urodzenia();
+        void wygeneruj_mail();
         
 
     private:
