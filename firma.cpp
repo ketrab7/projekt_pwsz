@@ -47,7 +47,11 @@ void Firma::dodaj_pracownika(){
     cout<<"podaj login: ";
     cin>>login;
     cout<<"podaj haslo: ";
-    cin>>haslo;
+    cin>>this->haslo;
+        while(sprawdz_haslo()==false){
+            cout<<endl<<"Podane haslo nie spelnia warunkow. Podaj ponownie haslo:";
+            cin>> this->haslo;
+         }
 
 
     cin.clear();
@@ -99,4 +103,30 @@ void Firma::wygeneruj_nr_sluzbowy(){
     srand(time(NULL));
     this->tel_sluzbowy = rand()%10000+100000;
     cout<<endl<<"Twoj numer telefonu sluzbowego to: 665"<<this->tel_sluzbowy<<endl;
+}
+bool Firma::sprawdz_haslo(){
+        
+    int ile_duzych = 0;  
+    int ile_malych = 0;
+    int ile_liczb = 0;    
+       
+    if (this->haslo.length() < 6 || this->haslo.length() > 20)   
+        return false;
+    else 
+    {
+        for (int i = 0; i<this->haslo.length(); i++) 
+        {
+            if (this->haslo[i] <= 90 && this->haslo[i] >= 65)
+                ile_duzych++;
+            else if (this->haslo[i] <= 122 && this->haslo[i] >= 97)
+                ile_malych++;
+            else if (this->haslo[i] <= 57 && this->haslo[i] >= 48)
+                ile_liczb++;
+        }
+        if (ile_duzych == 0 || ile_malych == 0 || ile_liczb == 0)
+            return false;
+        else
+            return true;
+         
+    }     
 }
