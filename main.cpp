@@ -14,6 +14,7 @@ int main () {
    pracownik1.data_urodzenia();
    pracownik1.wygeneruj_mail();
    pracownik1.wygeneruj_nr_sluzbowy();
+   pracownik1.przypisz_uprawnienia();
 
    return 0;
 } 

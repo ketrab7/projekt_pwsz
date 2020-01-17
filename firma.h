@@ -19,12 +19,14 @@ class Firma
         int tel_stacjonarny;
         int tel_sluzbowy;
         string email;
+        string kategoria_prawa_jazdy;
 
 
         void dodaj_pracownika();
         void data_urodzenia();
         void wygeneruj_mail();
         void wygeneruj_nr_sluzbowy();
+        void przypisz_uprawnienia();
         
 
     private:

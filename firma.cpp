@@ -52,7 +52,8 @@ void Firma::dodaj_pracownika(){
             cout<<endl<<"Podane haslo nie spelnia warunkow. Podaj ponownie haslo:";
             cin>> this->haslo;
          }
-
+    cout<<"podaj kategorie prawa jazdy jakie posiadasz: ";
+    cin>>this->kategoria_prawa_jazdy;
 
     cin.clear();
 }
@@ -129,4 +130,34 @@ bool Firma::sprawdz_haslo(){
             return true;
          
     }     
+}
+void Firma::przypisz_uprawnienia(){
+    for(int i=0; i<this->kategoria_prawa_jazdy.size(); i++){
+        this->kategoria_prawa_jazdy[i] = toupper(this->kategoria_prawa_jazdy[i]);
+    }
+    for(int i=0; i<this->kategoria_prawa_jazdy.size(); i++){
+        
+        switch(this->kategoria_prawa_jazdy[i])
+        {
+            case 'A':
+                cout<<"Posiadasz prawo jazdy na motor"<<endl;
+                break;
+            case 'B':
+                cout<<"Posiadasz prawo jazdy na samochod"<<endl;
+                break;
+            case 'C':
+                cout<<"Posiadasz prawo jazdy upowazniajace do kierowania ciezarowka"<<endl;
+                break;
+            case 'D':
+                cout<<"Posiadasz prawo jazdy upowazniajace do kierowania autobusem"<<endl;
+                break;
+            case 'T':
+                cout<<"Posiadasz prawo jazdy upowazniajace do kierowania ciagnikiem rolniczym"<<endl;
+                break;
+   
+            default:
+                cout<<"Nie umiesz prowadzic"<<endl;
+            break;
+        }
+    }
 }
