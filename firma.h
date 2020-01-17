@@ -16,6 +16,7 @@ class Firma
         string stanowisko;
         string login;
         string haslo;
+        string sprawdz_ponownie_haslo;
         int tel_stacjonarny;
         int tel_sluzbowy;
         string email;

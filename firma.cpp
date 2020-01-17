@@ -48,9 +48,13 @@ void Firma::dodaj_pracownika(){
     cin>>login;
     cout<<"podaj haslo: ";
     cin>>this->haslo;
+    cout<<"podaj ponownie haslo: ";
+    cin>>this->sprawdz_ponownie_haslo;
         while(sprawdz_haslo()==false){
-            cout<<endl<<"Podane haslo nie spelnia warunkow. Podaj ponownie haslo:";
+            cout<<endl<<"Podane haslo nie spelnia warunkow lub nie jest takie samo. Podaj haslo: ";
             cin>> this->haslo;
+            cout<<endl<<"Podaj ponownie haslo: ";
+            cin>> this->sprawdz_ponownie_haslo;
          }
     cout<<"podaj kategorie prawa jazdy jakie posiadasz: ";
     cin>>this->kategoria_prawa_jazdy;
@@ -110,26 +114,32 @@ bool Firma::sprawdz_haslo(){
     int ile_duzych = 0;  
     int ile_malych = 0;
     int ile_liczb = 0;    
-       
-    if (this->haslo.length() < 6 || this->haslo.length() > 20)   
-        return false;
-    else 
+
+    if(this->haslo != this->sprawdz_ponownie_haslo)
     {
-        for (int i = 0; i<this->haslo.length(); i++) 
-        {
-            if (this->haslo[i] <= 90 && this->haslo[i] >= 65)
-                ile_duzych++;
-            else if (this->haslo[i] <= 122 && this->haslo[i] >= 97)
-                ile_malych++;
-            else if (this->haslo[i] <= 57 && this->haslo[i] >= 48)
-                ile_liczb++;
-        }
-        if (ile_duzych == 0 || ile_malych == 0 || ile_liczb == 0)
+        return false;
+    }
+    else
+    {
+        if (this->haslo.length() < 6 || this->haslo.length() > 20)   
             return false;
-        else
-            return true;
-         
-    }     
+        else 
+        {
+            for (int i = 0; i<this->haslo.length(); i++) 
+            {
+                if (this->haslo[i] <= 90 && this->haslo[i] >= 65)
+                    ile_duzych++;
+                else if (this->haslo[i] <= 122 && this->haslo[i] >= 97)
+                    ile_malych++;
+                else if (this->haslo[i] <= 57 && this->haslo[i] >= 48)
+                    ile_liczb++;
+            }
+            if (ile_duzych == 0 || ile_malych == 0 || ile_liczb == 0)
+                return false;
+            else
+                return true;
+        }
+    }       
 }
 void Firma::przypisz_uprawnienia(){
     for(int i=0; i<this->kategoria_prawa_jazdy.size(); i++){
